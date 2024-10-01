@@ -8,15 +8,18 @@ import { FeedCertification } from "~/components/feed-certification"
 import { FeedIcon } from "~/components/feed-icon"
 import { OouiUserAnonymous } from "~/components/icons/OouiUserAnonymous"
 import { Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from "~/components/ui/tooltip"
-import { useFeedActions } from "~/hooks/biz/useFeedActions"
+import { EllipsisHorizontalTextWithTooltip } from "~/components/ui/typography"
+import { useFeedActions, useListActions } from "~/hooks/biz/useFeedActions"
 import { useNavigateEntry } from "~/hooks/biz/useNavigateEntry"
 import { useRouteParamsSelector } from "~/hooks/biz/useRouteParams"
 import { useAnyPointDown } from "~/hooks/common"
 import { nextFrame } from "~/lib/dom"
+import type { FeedViewType } from "~/lib/enum"
 import { getNewIssueUrl } from "~/lib/issues"
 import { showNativeMenu } from "~/lib/native-menu"
 import { cn } from "~/lib/utils"
 import { getPreferredTitle, useFeedById } from "~/store/feed"
+import { useListById } from "~/store/list"
 import { subscriptionActions, useSubscriptionByFeedId } from "~/store/subscription"
 import { useFeedUnreadStore } from "~/store/unread"
 
@@ -26,9 +29,8 @@ interface FeedItemProps {
   feedId: string
   view?: number
   className?: string
-  showUnreadCount?: boolean
 }
-const FeedItemImpl = ({ view, feedId, className, showUnreadCount = true }: FeedItemProps) => {
+const FeedItemImpl = ({ view, feedId, className }: FeedItemProps) => {
   const { t } = useTranslation()
   const subscription = useSubscriptionByFeedId(feedId)
   const navigate = useNavigateEntry()
@@ -69,7 +71,7 @@ const FeedItemImpl = ({ view, feedId, className, showUnreadCount = true }: FeedI
   if (!feed) return null
 
   const isFeed = feed.type === "feed" || !feed.type
-  const isList = feed.type === "list"
+
   return (
     <>
       <div
@@ -119,15 +121,8 @@ const FeedItemImpl = ({ view, feedId, className, showUnreadCount = true }: FeedI
             isFeed && feed.errorAt && "text-red-900 dark:text-red-500",
           )}
         >
-          <FeedIcon fallback feed={feed} size={isList ? 32 : 16} />
-          <div
-            className={cn(
-              "truncate",
-              !showUnreadCount && (feedUnread ? "font-bold" : "font-medium opacity-70"),
-            )}
-          >
-            {getPreferredTitle(feed)}
-          </div>
+          <FeedIcon fallback feed={feed} size={16} />
+          <div className="truncate">{getPreferredTitle(feed)}</div>
           {isFeed && <FeedCertification feed={feed} className="text-[15px]" />}
           {isFeed && feed.errorAt && (
             <Tooltip delayDuration={300}>
@@ -164,10 +159,84 @@ const FeedItemImpl = ({ view, feedId, className, showUnreadCount = true }: FeedI
             </Tooltip>
           )}
         </div>
-        <UnreadNumber unread={feedUnread} className="ml-2" isList={isList} />
+        <UnreadNumber unread={feedUnread} className="ml-2" />
       </div>
     </>
   )
 }
 
 export const FeedItem = memo(FeedItemImpl)
+
+const ListItemImpl: Component<{
+  listId: string
+  view: FeedViewType
+}> = ({ view, listId, className }) => {
+  const list = useListById(listId)
+
+  const isActive = useRouteParamsSelector((routerParams) => routerParams.feedId === listId)
+  const { items } = useListActions({ listId, view })
+
+  const listUnread = useFeedUnreadStore((state) => state.data[listId] || 0)
+
+  const [isContextMenuOpen, setIsContextMenuOpen] = useState(false)
+  useAnyPointDown(() => {
+    setIsContextMenuOpen(false)
+  })
+  const subscription = useSubscriptionByFeedId(listId)
+  const navigate = useNavigateEntry()
+  const handleNavigate = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation()
+
+      navigate({
+        feedId: listId,
+        entryId: null,
+        view,
+      })
+    },
+    [listId, navigate, view],
+  )
+  const { t } = useTranslation()
+  if (!list) return null
+  return (
+    <div
+      data-list-id={listId}
+      className={cn(
+        "flex w-full cursor-menu items-center justify-between rounded-md pr-2.5 text-sm font-medium leading-loose",
+        (isActive || isContextMenuOpen) && "bg-native-active",
+        "py-1.5 pl-2.5",
+        className,
+      )}
+      onClick={handleNavigate}
+      onDoubleClick={() => {
+        window.open(`${WEB_URL}/list/${listId}?view=${view}`, "_blank")
+      }}
+      onContextMenu={(e) => {
+        setIsContextMenuOpen(true)
+
+        showNativeMenu(items, e)
+      }}
+    >
+      <div className={"flex min-w-0 items-center"}>
+        <FeedIcon fallback feed={list} size={28} />
+        <EllipsisHorizontalTextWithTooltip className="truncate">
+          {list.title}
+        </EllipsisHorizontalTextWithTooltip>
+
+        {subscription.isPrivate && (
+          <Tooltip delayDuration={300}>
+            <TooltipTrigger>
+              <OouiUserAnonymous className="ml-1 shrink-0 text-base" />
+            </TooltipTrigger>
+            <TooltipPortal>
+              <TooltipContent>{t("feed_item.not_publicly_visible")}</TooltipContent>
+            </TooltipPortal>
+          </Tooltip>
+        )}
+      </div>
+      <UnreadNumber unread={listUnread} isList className="ml-2" />
+    </div>
+  )
+}
+
+export const ListItem = memo(ListItemImpl)

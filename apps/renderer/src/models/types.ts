@@ -25,7 +25,7 @@ export type TransactionModel = ExtractBizResponse<
 
 export type FeedModel = ExtractBizResponse<typeof apiClient.feeds.$get>["data"]["feed"]
 
-type ListModelPoplutedFeeds = ExtractBizResponse<typeof apiClient.lists.$get>["data"]["list"]
+export type ListModelPoplutedFeeds = ExtractBizResponse<typeof apiClient.lists.$get>["data"]["list"]
 export type ListModel = Omit<ListModelPoplutedFeeds, "feeds">
 export type FeedOrListRespModel = FeedModel | ListModelPoplutedFeeds
 export type FeedOrListModel = FeedModel | ListModel
@@ -84,3 +84,27 @@ export type MediaModel = Exclude<
   ExtractBizResponse<typeof apiClient.entries.$get>["data"],
   undefined
 >["entries"]["media"]
+
+export type ActionsInput = {
+  name: string
+  condition: {
+    field?: ActionFeedField
+    operator?: ActionOperation
+    value?: string
+  }[]
+  result: {
+    translation?: string
+    summary?: boolean
+    readability?: boolean
+    rewriteRules?: {
+      from: string
+      to: string
+    }[]
+    blockRules?: {
+      field?: ActionEntryField
+      operator?: ActionOperation
+      value?: string | number
+    }[]
+    webhooks?: string[]
+  }
+}[]
