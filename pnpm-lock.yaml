@@ -67,7 +67,7 @@ importers:
         version: 5.1.0
       '@hono/node-server':
         specifier: 1.13.1
-        version: 1.13.1(hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e))
+        version: 1.13.1(hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e))
       '@hookform/resolvers':
         specifier: 3.9.0
         version: 3.9.0(react-hook-form@7.53.0(react@18.3.1))
@@ -156,8 +156,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0
       hono:
-        specifier: 4.6.3
-        version: 4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
+        specifier: 4.6.5
+        version: 4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
       lint-staged:
         specifier: 15.2.10
         version: 15.2.10
@@ -216,8 +216,8 @@ importers:
         specifier: 5.0.1
         version: 5.0.1(typescript@5.4.5)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))
       vitest:
-        specifier: '2.0'
-        version: 2.0.5(@types/node@22.7.4)(terser@5.34.1)
+        specifier: 2.1.0
+        version: 2.1.0(@types/node@22.7.4)(terser@5.34.1)
 
   apps/main:
     dependencies:
@@ -310,8 +310,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0
       hono:
-        specifier: 4.6.3
-        version: 4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
+        specifier: 4.6.5
+        version: 4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
 
   apps/renderer:
     dependencies:
@@ -335,7 +335,7 @@ importers:
         version: 2.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@hono/auth-js':
         specifier: 1.0.10
-        version: 1.0.10(@auth/core@0.35.3)(hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e))(react@18.3.1)
+        version: 1.0.10(@auth/core@0.35.3)(hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e))(react@18.3.1)
       '@hookform/resolvers':
         specifier: 3.9.0
         version: 3.9.0(react-hook-form@7.53.0(react@18.3.1))
@@ -621,7 +621,7 @@ importers:
         version: 7.25.6
       '@hono/node-server':
         specifier: 1.13.1
-        version: 1.13.1(hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e))
+        version: 1.13.1(hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e))
       '@types/lodash-es':
         specifier: 4.17.12
         version: 4.17.12
@@ -657,7 +657,7 @@ importers:
         version: 1.0.1(@types/node@22.7.4)
       '@hono/node-server':
         specifier: ^1.13.1
-        version: 1.13.1(hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e))
+        version: 1.13.1(hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e))
       '@t3-oss/env-core':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.6.2)(zod@3.23.8)
@@ -668,8 +668,8 @@ importers:
         specifier: ^32.1.2
         version: 32.1.2
       hono:
-        specifier: ^4.6.3
-        version: 4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
+        specifier: ^4.6.5
+        version: 4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -3753,8 +3753,26 @@ packages:
   '@vitest/expect@2.0.5':
     resolution: {integrity: sha512-yHZtwuP7JZivj65Gxoi8upUN2OzHTi3zVfjwdpu2WrvCZPLwsJ2Ey5ILIPccoW23dd/zQBlJ4/dhi7DWNyXCpA==}
 
+  '@vitest/expect@2.1.0':
+    resolution: {integrity: sha512-N3/xR4fSu0+6sVZETEtPT1orUs2+Y477JOXTcU3xKuu3uBlsgbD7/7Mz2LZ1Jr1XjwilEWlrIgSCj4N1+5ZmsQ==}
+
+  '@vitest/mocker@2.1.0':
+    resolution: {integrity: sha512-ZxENovUqhzl+QiOFpagiHUNUuZ1qPd5yYTCYHomGIZOFArzn4mgX2oxZmiAItJWAaXHG6bbpb/DpSPhlk5DgtA==}
+    peerDependencies:
+      '@vitest/spy': 2.1.0
+      msw: ^2.3.5
+      vite: ^5.0.0
+    peerDependenciesMeta:
+      msw:
+        optional: true
+      vite:
+        optional: true
+
   '@vitest/pretty-format@2.0.5':
     resolution: {integrity: sha512-h8k+1oWHfwTkyTkb9egzwNMfJAEx4veaPSnMeKbVSjp4euqGSbQlm5+6VHwTr7u4FJslVVsUG5nopCaAYdOmSQ==}
+
+  '@vitest/pretty-format@2.1.0':
+    resolution: {integrity: sha512-7sxf2F3DNYatgmzXXcTh6cq+/fxwB47RIQqZJFoSH883wnVAoccSRT6g+dTKemUBo8Q5N4OYYj1EBXLuRKvp3Q==}
 
   '@vitest/pretty-format@2.1.1':
     resolution: {integrity: sha512-SjxPFOtuINDUW8/UkElJYQSFtnWX7tMksSGW0vfjxMneFqxVr8YJ979QpMbDW7g+BIiq88RAGDjf7en6rvLPPQ==}
@@ -3762,14 +3780,26 @@ packages:
   '@vitest/runner@2.0.5':
     resolution: {integrity: sha512-TfRfZa6Bkk9ky4tW0z20WKXFEwwvWhRY+84CnSEtq4+3ZvDlJyY32oNTJtM7AW9ihW90tX/1Q78cb6FjoAs+ig==}
 
+  '@vitest/runner@2.1.0':
+    resolution: {integrity: sha512-D9+ZiB8MbMt7qWDRJc4CRNNUlne/8E1X7dcKhZVAbcOKG58MGGYVDqAq19xlhNfMFZsW0bpVKgztBwks38Ko0w==}
+
   '@vitest/snapshot@2.0.5':
     resolution: {integrity: sha512-SgCPUeDFLaM0mIUHfaArq8fD2WbaXG/zVXjRupthYfYGzc8ztbFbu6dUNOblBG7XLMR1kEhS/DNnfCZ2IhdDew==}
+
+  '@vitest/snapshot@2.1.0':
+    resolution: {integrity: sha512-x69CygGMzt9VCO283K2/FYQ+nBrOj66OTKpsPykjCR4Ac3lLV+m85hj9reaIGmjBSsKzVvbxWmjWE3kF5ha3uQ==}
 
   '@vitest/spy@2.0.5':
     resolution: {integrity: sha512-c/jdthAhvJdpfVuaexSrnawxZz6pywlTPe84LUB2m/4t3rl2fTo9NFGBG4oWgaD+FTgDDV8hJ/nibT7IfH3JfA==}
 
+  '@vitest/spy@2.1.0':
+    resolution: {integrity: sha512-IXX5NkbdgTYTog3F14i2LgnBc+20YmkXMx0IWai84mcxySUDRgm0ihbOfR4L0EVRBDFG85GjmQQEZNNKVVpkZw==}
+
   '@vitest/utils@2.0.5':
     resolution: {integrity: sha512-d8HKbqIcya+GR67mkZbrzhS5kKhtp8dQLcmRZLGTscGVg7yImT82cIrhtn2L8+VujWcy6KZweApgNmPsTAO/UQ==}
+
+  '@vitest/utils@2.1.0':
+    resolution: {integrity: sha512-rreyfVe0PuNqJfKYUwfPDfi6rrp0VSu0Wgvp5WBqJonP+4NvXHk48X6oBam1Lj47Hy6jbJtnMj3OcRdrkTP0tA==}
 
   '@vscode/vscode-languagedetection@1.0.22':
     resolution: {integrity: sha512-rQ/BgMyLuIXSmbA0MSkIPHtcOw14QkeDbAq19sjvaS9LTRr905yij0S8lsyqN5JgOsbtIx7pAcyOxFMzPmqhZQ==}
@@ -4031,6 +4061,7 @@ packages:
 
   boolean@3.2.0:
     resolution: {integrity: sha512-d0II/GO9uf9lfUHH2BQsjxzRJZBdsjgsBiW4BvhWk/3qoKwQFjIDVN19PfX8F2D/r9PCMTtLWjYVCFrpeYUzsw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   bottleneck@2.19.5:
     resolution: {integrity: sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw==}
@@ -5733,8 +5764,8 @@ packages:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
 
-  hono@4.6.3:
-    resolution: {integrity: sha512-0LeEuBNFeSHGqZ9sNVVgZjB1V5fmhkBSB0hZrpqStSMLOWgfLy0dHOvrjbJh0H2khsjet6rbHfWTHY0kpYThKQ==}
+  hono@4.6.5:
+    resolution: {integrity: sha512-qsmN3V5fgtwdKARGLgwwHvcdLKursMd+YOt69eGpl1dUCJb8mCd7hZfyZnBYjxCegBG7qkJRQRUy2oO25yHcyQ==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@2.8.9:
@@ -8591,6 +8622,11 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
+  vite-node@2.1.0:
+    resolution: {integrity: sha512-+ybYqBVUjYyIscoLzMWodus2enQDZOpGhcU6HdOVD6n8WZdk12w1GFL3mbnxLs7hPtRtqs1Wo5YF6/Tsr6fmhg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+
   vite-plugin-mkcert@1.17.6:
     resolution: {integrity: sha512-4JR1RN0HEg/w17eRQJ/Ve2pSa6KCVQcQO6yKtIaKQCFDyd63zGfXHWpygBkvvRSpqa0GcqNKf0fjUJ0HiJQXVQ==}
     engines: {node: '>=v16.7.0'}
@@ -8645,6 +8681,31 @@ packages:
       '@types/node': ^18.0.0 || >=20.0.0
       '@vitest/browser': 2.0.5
       '@vitest/ui': 2.0.5
+      happy-dom: '*'
+      jsdom: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@types/node':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+
+  vitest@2.1.0:
+    resolution: {integrity: sha512-XuuEeyNkqbfr0FtAvd9vFbInSSNY1ykCQTYQ0sj9wPy4hx+1gR7gqVNdW0AX2wrrM1wWlN5fnJDjF9xG6mYRSQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@types/node': ^18.0.0 || >=20.0.0
+      '@vitest/browser': 2.1.0
+      '@vitest/ui': 2.1.0
       happy-dom: '*'
       jsdom: '*'
     peerDependenciesMeta:
@@ -10529,15 +10590,15 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@hono/auth-js@1.0.10(@auth/core@0.35.3)(hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e))(react@18.3.1)':
+  '@hono/auth-js@1.0.10(@auth/core@0.35.3)(hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e))(react@18.3.1)':
     dependencies:
       '@auth/core': 0.35.3
-      hono: 4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
+      hono: 4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
       react: 18.3.1
 
-  '@hono/node-server@1.13.1(hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e))':
+  '@hono/node-server@1.13.1(hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e))':
     dependencies:
-      hono: 4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
+      hono: 4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e)
 
   '@hookform/resolvers@3.9.0(react-hook-form@7.53.0(react@18.3.1))':
     dependencies:
@@ -12619,7 +12680,26 @@ snapshots:
       chai: 5.1.1
       tinyrainbow: 1.2.0
 
+  '@vitest/expect@2.1.0':
+    dependencies:
+      '@vitest/spy': 2.1.0
+      '@vitest/utils': 2.1.0
+      chai: 5.1.1
+      tinyrainbow: 1.2.0
+
+  '@vitest/mocker@2.1.0(@vitest/spy@2.1.0)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))':
+    dependencies:
+      '@vitest/spy': 2.1.0
+      estree-walker: 3.0.3
+      magic-string: 0.30.11
+    optionalDependencies:
+      vite: 5.4.8(@types/node@22.7.4)(terser@5.34.1)
+
   '@vitest/pretty-format@2.0.5':
+    dependencies:
+      tinyrainbow: 1.2.0
+
+  '@vitest/pretty-format@2.1.0':
     dependencies:
       tinyrainbow: 1.2.0
 
@@ -12632,9 +12712,20 @@ snapshots:
       '@vitest/utils': 2.0.5
       pathe: 1.1.2
 
+  '@vitest/runner@2.1.0':
+    dependencies:
+      '@vitest/utils': 2.1.0
+      pathe: 1.1.2
+
   '@vitest/snapshot@2.0.5':
     dependencies:
       '@vitest/pretty-format': 2.0.5
+      magic-string: 0.30.11
+      pathe: 1.1.2
+
+  '@vitest/snapshot@2.1.0':
+    dependencies:
+      '@vitest/pretty-format': 2.1.0
       magic-string: 0.30.11
       pathe: 1.1.2
 
@@ -12642,10 +12733,20 @@ snapshots:
     dependencies:
       tinyspy: 3.0.2
 
+  '@vitest/spy@2.1.0':
+    dependencies:
+      tinyspy: 3.0.2
+
   '@vitest/utils@2.0.5':
     dependencies:
       '@vitest/pretty-format': 2.0.5
       estree-walker: 3.0.3
+      loupe: 3.1.1
+      tinyrainbow: 1.2.0
+
+  '@vitest/utils@2.1.0':
+    dependencies:
+      '@vitest/pretty-format': 2.1.0
       loupe: 3.1.1
       tinyrainbow: 1.2.0
 
@@ -15196,7 +15297,7 @@ snapshots:
     dependencies:
       parse-passwd: 1.0.0
 
-  hono@4.6.3(patch_hash=iej2g43ojhll5opwbnvyorjq4e): {}
+  hono@4.6.5(patch_hash=iej2g43ojhll5opwbnvyorjq4e): {}
 
   hosted-git-info@2.8.9: {}
 
@@ -18371,6 +18472,23 @@ snapshots:
       - supports-color
       - terser
 
+  vite-node@2.1.0(@types/node@22.7.4)(terser@5.34.1):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.7
+      pathe: 1.1.2
+      vite: 5.4.8(@types/node@22.7.4)(terser@5.34.1)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
   vite-plugin-mkcert@1.17.6(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1)):
     dependencies:
       '@octokit/rest': 20.1.1
@@ -18428,6 +18546,40 @@ snapshots:
     transitivePeerDependencies:
       - less
       - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@2.1.0(@types/node@22.7.4)(terser@5.34.1):
+    dependencies:
+      '@vitest/expect': 2.1.0
+      '@vitest/mocker': 2.1.0(@vitest/spy@2.1.0)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))
+      '@vitest/pretty-format': 2.1.1
+      '@vitest/runner': 2.1.0
+      '@vitest/snapshot': 2.1.0
+      '@vitest/spy': 2.1.0
+      '@vitest/utils': 2.1.0
+      chai: 5.1.1
+      debug: 4.3.7
+      magic-string: 0.30.11
+      pathe: 1.1.2
+      std-env: 3.7.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.0
+      tinypool: 1.0.1
+      tinyrainbow: 1.2.0
+      vite: 5.4.8(@types/node@22.7.4)(terser@5.34.1)
+      vite-node: 2.1.0(@types/node@22.7.4)(terser@5.34.1)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 22.7.4
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - msw
       - sass
       - sass-embedded
       - stylus
