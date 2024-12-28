@@ -72,7 +72,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react-dom": "^19.0.1",
     "@vercel/node": "3.2.27",
     "@vitejs/plugin-legacy": "6.0.0",
     "@vitejs/plugin-react": "^4.3.4",
