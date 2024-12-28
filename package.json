@@ -44,7 +44,7 @@
     "update:main-hash": "tsx plugins/vite/generate-main-hash.ts"
   },
   "devDependencies": {
-    "@babel/generator": "7.26.2",
+    "@babel/generator": "7.26.3",
     "@clack/prompts": "0.8.2",
     "@egoist/tailwindcss-icons": "1.8.1",
     "@electron-forge/cli": "7.6.0",
