@@ -27,7 +27,7 @@
     "@electron-toolkit/utils": "^3.0.0",
     "@eneris/push-receiver": "4.3.0",
     "@follow/shared": "workspace:*",
-    "@mozilla/readability": "^0.5.0",
+    "@mozilla/readability": "^0.6.0",
     "@openpanel/web": "1.0.1",
     "@sentry/electron": "5.7.0",
     "builder-util-runtime": "9.2.10",
