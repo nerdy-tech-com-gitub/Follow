@@ -90,7 +90,7 @@
     "eslint": "^9.16.0",
     "eslint-config-hyoban": "^3.1.14",
     "fake-indexeddb": "6.0.0",
-    "happy-dom": "15.11.7",
+    "happy-dom": "17.4.4",
     "hono": "4.6.12",
     "html-minifier-terser": "7.2.0",
     "js-yaml": "4.1.0",
