@@ -105,7 +105,7 @@
     "rimraf": "6.0.1",
     "shx": "^0.3.4",
     "simple-git-hooks": "2.11.1",
-    "tailwindcss": "3.4.15",
+    "tailwindcss": "4.0.17",
     "tailwindcss-animate": "1.0.7",
     "tailwindcss-motion": "0.4.3-beta",
     "tailwindcss-safe-area": "0.6.0",
