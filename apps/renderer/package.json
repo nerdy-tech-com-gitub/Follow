@@ -31,7 +31,7 @@
     "@radix-ui/react-popover": "1.1.2",
     "@radix-ui/react-slider": "^1.2.1",
     "@radix-ui/react-slot": "1.1.0",
-    "@sentry/react": "8.41.0",
+    "@sentry/react": "9.10.1",
     "@shikijs/transformers": "1.24.0",
     "@tanstack/query-sync-storage-persister": "5.62.0",
     "@tanstack/react-query": "5.62.0",
