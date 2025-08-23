@@ -59,7 +59,7 @@
     "tsx": "4.20.3",
     "turbo": "2.5.4",
     "typescript": "catalog:",
-    "vite": "6.3.5",
+    "vite": "7.0.6",
     "vitest": "3.2.4"
   },
   "pnpm": {
